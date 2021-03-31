@@ -1,5 +1,19 @@
-# Object file
-*.o
+# No user preferences
+userPreferences.*
 
-# Ada Library Information
-*.ali
+# No derived data
+Project/DerivedData
+
+# No data or indexes
+Data/*
+*.4dd
+*.4DIndx
+*.4DIndy
+*.Match
+*symbols.txt
+
+# No logs
+Logs
+
+Settings/buildApp.4DSettings
+Resources/componentManifest.json
