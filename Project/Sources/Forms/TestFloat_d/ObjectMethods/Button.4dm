@@ -22,4 +22,4 @@ If ($processNumber>0)
 	//POST EVENT(Key down event; Character code("v"); Tickcount+20; 0; 0; Command key mask; $processNumber)  // post a cmd/ctrl-V event
 End if 
 
-INVOKE ACTION:C1439
+// INVOKE ACTION:C1439
