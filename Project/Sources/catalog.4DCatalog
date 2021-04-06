@@ -2,4 +2,20 @@
 <!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
 <base name="CodeSnippets" uuid="7C21E2BE1D5F4053B558BA83BAECA1F5" collation_locale="en">
 	<schema name="DEFAULT_SCHEMA"/>
+	<table name="Table_1" uuid="84E1396D7ECA4FA9B48B9205F8C9230C" id="1">
+		<field name="ID" uuid="417C6B925A504639AF4F76F8DFB1D94E" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<primary_key field_name="ID" field_uuid="417C6B925A504639AF4F76F8DFB1D94E"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="40" top="40" width="120" height="167.33203125"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<index kind="regular" unique_keys="true" uuid="0C02E0CC32B94E06A5561504EC87AC84" type="7">
+		<field_ref uuid="417C6B925A504639AF4F76F8DFB1D94E" name="ID">
+			<table_ref uuid="84E1396D7ECA4FA9B48B9205F8C9230C" name="Table_1"/>
+		</field_ref>
+	</index>
+	<base_extra __stringCompHash="icu:63.1.0" __keywordBuildingHash="icu:63.1.0"/>
 </base>

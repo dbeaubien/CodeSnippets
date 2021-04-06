@@ -1,5 +1,52 @@
 //%attributes = {}
 
+var $controller : cs:C1710.SnippetController
+$controller:=cs:C1710.SnippetController.new()
+
+var $snippet : cs:C1710.SnippetModel
+$snippet:=cs:C1710.SnippetModel.new()
+$snippet.SetName("Test#3")
+$snippet.SetSnippet("<timestamp> test")
+$snippet.AddPermitedWindowType("Method")
+$snippet.SetLocationToApply("Top")
+$controller.AddSnippetToList($snippet)
+
+$snippet:=cs:C1710.SnippetModel.new()
+$snippet.SetName("Test#2")
+$snippet.SetSnippet("Another Test")
+$snippet.AddPermitedWindowType("Method")
+$snippet.SetLocationToApply("Bottom")
+$controller.AddSnippetToList($snippet)
+
+$snippet:=cs:C1710.SnippetModel.new()
+$snippet.SetName("Test#1")
+$snippet.SetSnippet("Yet Another Test")
+$snippet.AddPermitedWindowType("Class")
+$snippet.SetLocationToApply("Bottom")
+$controller.AddSnippetToList($snippet)
+
+$snippet:=cs:C1710.SnippetModel.new()
+$snippet.SetName("Test#4")
+$snippet.SetSnippet("Yet Another Test")
+$snippet.AddPermitedWindowType("Class")
+$snippet.AddPermitedWindowType("Method")
+$snippet.AddPermitedWindowType("Object Method")
+$snippet.AddPermitedWindowType("Form Method")
+$snippet.AddPermitedWindowType("Trigger")
+$snippet.AddPermitedWindowType("Database Method")
+$snippet.SetLocationToApply("Cursor")
+$controller.AddSnippetToList($snippet)
+
+var $list : Collection
+$list:=$controller.GetSnippetListByType("@")
+$list:=$controller.GetSnippetListByType("Class")
+$list:=$controller.GetSnippetListByType("Method")
+
+BEEP:C151
+ABORT:C156
+SET DATABASE LOCALIZATION:C1104("FR")
+SET DATABASE LOCALIZATION:C1104("EN")
+
 ARRAY LONGINT:C221($windowRefsArr; 0)
 WINDOW LIST:C442($windowRefsArr)
 

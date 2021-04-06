@@ -1,0 +1,160 @@
+﻿{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "variable",
+	"windowSizingY": "variable",
+	"windowMinWidth": 0,
+	"windowMinHeight": 0,
+	"windowMaxWidth": 32767,
+	"windowMaxHeight": 32767,
+	"events": [
+		"onLoad",
+		"onCloseBox"
+	],
+	"windowTitle": "window title",
+	"destination": "detailScreen",
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"Text": {
+					"type": "text",
+					"text": "Snippet Text To Insert",
+					"top": 170,
+					"left": 11,
+					"width": 302,
+					"height": 16,
+					"fontWeight": "bold",
+					"sizingY": "fixed",
+					"sizingX": "fixed"
+				},
+				"Button": {
+					"type": "button",
+					"text": "Save",
+					"top": 13,
+					"left": 472,
+					"width": 67,
+					"height": 30,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button.4dm"
+				},
+				"Button1": {
+					"type": "button",
+					"text": "Cancel",
+					"top": 12,
+					"left": 398,
+					"width": 67,
+					"height": 30,
+					"events": [
+						"onClick"
+					],
+					"action": "cancel"
+				},
+				"Input": {
+					"type": "input",
+					"left": 11,
+					"top": 20,
+					"width": 368,
+					"height": 17,
+					"dataSource": "Form:C1466.name",
+					"placeholder": "Snippet Name"
+				},
+				"Input1": {
+					"type": "input",
+					"left": 11,
+					"top": 192,
+					"width": 513,
+					"height": 182,
+					"dataSource": "Form:C1466.snippet",
+					"placeholder": "Snippet",
+					"scrollbarVertical": "automatic",
+					"scrollbarHorizontal": "automatic",
+					"bottom": 374,
+					"sizingY": "grow",
+					"sizingX": "grow"
+				},
+				"Text1": {
+					"type": "text",
+					"text": "Insert Location",
+					"top": 54,
+					"left": 11,
+					"width": 111,
+					"height": 16,
+					"fontWeight": "bold",
+					"sizingY": "fixed",
+					"sizingX": "fixed"
+				},
+				"Radio Button": {
+					"type": "radio",
+					"text": "Top of Window",
+					"top": 77,
+					"left": 42,
+					"width": 131,
+					"height": 17,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Radio Button.4dm",
+					"dataSource": "Form:C1466.insertTop"
+				},
+				"Radio Button1": {
+					"type": "radio",
+					"text": "Cursor Location",
+					"top": 77,
+					"left": 187,
+					"width": 141,
+					"height": 17,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Radio Button1.4dm",
+					"dataSource": "Form:C1466.insertCursor"
+				},
+				"Radio Button2": {
+					"type": "radio",
+					"text": "Bottom of WIndow",
+					"top": 77,
+					"left": 329,
+					"width": 151,
+					"height": 17,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Radio Button2.4dm",
+					"dataSource": "Form:C1466.insertBottom"
+				},
+				"Rectangle": {
+					"type": "rectangle",
+					"top": 457,
+					"left": 289,
+					"width": 144,
+					"height": 32
+				},
+				"Rectangle1": {
+					"type": "rectangle",
+					"top": 457,
+					"left": 432,
+					"width": 144,
+					"height": 32
+				}
+			}
+		}
+	],
+	"geometryStamp": 211,
+	"method": "method.4dm",
+	"width": 550,
+	"height": 400,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	}
+}

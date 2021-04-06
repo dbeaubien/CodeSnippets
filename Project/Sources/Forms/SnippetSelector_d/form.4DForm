@@ -1,0 +1,163 @@
+﻿{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "fixed",
+	"windowSizingY": "variable",
+	"windowMinWidth": 0,
+	"windowMinHeight": 300,
+	"windowMaxWidth": 32767,
+	"windowMaxHeight": 32767,
+	"events": [
+		"onLoad",
+		"onTimer"
+	],
+	"windowTitle": "window title",
+	"destination": "detailScreen",
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"windowTitle": {
+					"type": "text",
+					"text": "windowTitle",
+					"top": 6,
+					"left": 6,
+					"width": 236,
+					"height": 31,
+					"fontWeight": "bold"
+				},
+				"List Box": {
+					"type": "listbox",
+					"left": 0,
+					"top": 40,
+					"width": 249,
+					"height": 260,
+					"events": [
+						"onDoubleClick"
+					],
+					"listboxType": "collection",
+					"dataSource": "Form:C1466.snippetFilteredList",
+					"sizingX": "fixed",
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"focusable": true,
+					"scrollbarHorizontal": "hidden",
+					"hideFocusRing": true,
+					"hideSystemHighlight": false,
+					"fill": "automatic",
+					"alternateFill": "#EAFCFF",
+					"hideExtraBlankRows": false,
+					"currentItemSource": "Form:C1466.selectedSnippet",
+					"method": "ObjectMethods/List Box.4dm",
+					"columns": [
+						{
+							"header": {
+								"text": "Snippet",
+								"name": "Header1",
+								"textAlign": "left",
+								"fontWeight": "bold"
+							},
+							"name": "Column1",
+							"footer": {
+								"name": "Footer1"
+							},
+							"width": 207,
+							"dataSource": "This:C1470.friendlyName",
+							"rowHeightAuto": true,
+							"enterable": false,
+							"resizable": false,
+							"wordwrap": "none"
+						}
+					]
+				},
+				"Button": {
+					"type": "button",
+					"text": "esc",
+					"top": 9,
+					"left": 264,
+					"width": 77,
+					"height": 18,
+					"events": [
+						"onClick"
+					],
+					"shortcutAccel": false,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "[Esc]",
+					"focusable": false,
+					"sizingX": "move"
+				},
+				"Button1": {
+					"type": "button",
+					"text": "Cmd-.",
+					"top": 29,
+					"left": 264,
+					"width": 77,
+					"height": 18,
+					"events": [
+						"onClick"
+					],
+					"shortcutAccel": true,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": ".",
+					"focusable": false,
+					"sizingX": "move"
+				},
+				"Button2": {
+					"type": "button",
+					"text": "enter",
+					"top": 49,
+					"left": 264,
+					"width": 77,
+					"height": 18,
+					"events": [
+						"onClick"
+					],
+					"shortcutAccel": false,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "[Enter]",
+					"focusable": false,
+					"sizingX": "move"
+				},
+				"Button3": {
+					"type": "button",
+					"text": "return",
+					"top": 69,
+					"left": 264,
+					"width": 77,
+					"height": 18,
+					"events": [
+						"onClick"
+					],
+					"shortcutAccel": false,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "[Return]",
+					"focusable": false,
+					"sizingX": "move"
+				}
+			}
+		}
+	],
+	"geometryStamp": 138,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	},
+	"method": "method.4dm",
+	"width": 250,
+	"height": 300
+}
