@@ -3,12 +3,12 @@ Class constructor
 	This:C1470.snippetList:=New collection:C1472
 	
 	
-Function AddSnippetToList($snippet : cs:C1710.Snippet)
+Function AddSnippetToList($snippet : cs:C1710.SnippetModel)
 	This:C1470.snippetList:=This:C1470.snippetList.push($snippet).orderBy("name")
 	
 	
 Function RemoveSnippetFromListById($id : Text)
-	var $snippet : cs:C1710.Snippet
+	var $snippet : cs:C1710.SnippetModel
 	var $index : Integer
 	For each ($snippet; This:C1470.snippetList)
 		If ($id=$snippet.GetId())
@@ -19,7 +19,7 @@ Function RemoveSnippetFromListById($id : Text)
 	
 	
 Function GetSnippetListByType($type : Text)->$snippetFilteredList : Collection
-	var $snippet : cs:C1710.Snippet
+	var $snippet : cs:C1710.SnippetModel
 	$snippetFilteredList:=New collection:C1472
 	For each ($snippet; This:C1470.snippetList)
 		If ($snippet.IsWindowTypePermitted($type))
@@ -28,7 +28,7 @@ Function GetSnippetListByType($type : Text)->$snippetFilteredList : Collection
 	End for each 
 	
 	
-Function ApplySnippetToDevWindow($snippet : cs:C1710.Snippet)
+Function ApplySnippetToDevWindow($snippet : cs:C1710.SnippetModel)
 	var $currentPasteboard : Text
 	var $winRef; $processNumber : Integer
 	var $l; $t; $r; $b : Integer

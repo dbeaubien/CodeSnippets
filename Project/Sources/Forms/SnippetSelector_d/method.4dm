@@ -2,6 +2,7 @@
 Case of 
 	: (FORM Event:C1606.code=On Load:K2:1)
 		SET TIMER:C645(15)  // every 1/4 second
+		Form:C1466.forceListRefresh:=False:C215
 		Form:C1466.windowTypeFinder:=cs:C1710.WindowTypeFinder.new()
 		Form:C1466.designProcessId:=Process number:C372("Design process")
 		Form:C1466.frontDevWindow:=New object:C1471
@@ -14,18 +15,18 @@ Case of
 		Form:C1466.selectedSnippet:=Null:C1517
 		
 		
-	: (FORM Event:C1606.code=On Timer:K2:25)
+	: (FORM Event:C1606.code=On Timer:K2:25) | (Form:C1466.forceListRefresh)
 		var $frontWinRef : Integer
 		$frontWinRef:=Frontmost window:C447
 		Case of 
-			: (Form:C1466.frontDevWindow.refId=$frontWinRef)  // nothing to do
+			: (Form:C1466.frontDevWindow.refId=$frontWinRef) & (Not:C34(Form:C1466.forceListRefresh))  // nothing to do
 			: (Form:C1466.designProcessId#Window process:C446($frontWinRef))  // not a designer window
 				Form:C1466.frontDevWindow.refId:=0
 				Form:C1466.frontDevWindow.type:=""
 				OBJECT SET TITLE:C194(*; "Header1"; "Snippets Unsupported")
 				OBJECT SET TITLE:C194(*; "windowTitle"; "")
 				
-			: (Form:C1466.frontDevWindow.refId#$frontWinRef)
+			: (Form:C1466.frontDevWindow.refId#$frontWinRef) | (Form:C1466.forceListRefresh)
 				Form:C1466.frontDevWindow.refId:=$frontWinRef
 				Form:C1466.frontDevWindow.type:=Form:C1466.windowTypeFinder.GetTypeForWindow($frontWinRef)
 				OBJECT SET TITLE:C194(*; "windowTitle"; Get window title:C450($frontWinRef))
@@ -40,3 +41,5 @@ Case of
 		End case 
 		
 End case 
+
+Form:C1466.forceListRefresh:=False:C215

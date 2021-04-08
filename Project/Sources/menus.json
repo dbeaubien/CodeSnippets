@@ -2,16 +2,13 @@
 	"bars": [
 		{
 			"id": 1,
-			"name": "Barre #1",
+			"name": "MenuBar 1",
 			"items": [
 				{
 					"link": 32001
 				},
 				{
 					"link": 32002
-				},
-				{
-					"link": 32003
 				}
 			]
 		}
@@ -23,6 +20,7 @@
 			"items": [
 				{
 					"title": ":xliff:CommonMenuItemQuit",
+					"enabled": false,
 					"shortcutAccel": true,
 					"shortcutKey": "Q",
 					"action": "quit"
@@ -78,16 +76,6 @@
 				{
 					"title": ":xliff:CommonMenuItemShowClipboard",
 					"action": "showClipboard"
-				}
-			]
-		},
-		{
-			"link": 32003,
-			"title": ":xliff:CommonMenuMode",
-			"items": [
-				{
-					"title": ":xliff:CommonMenuItemDesign",
-					"action": "design"
 				}
 			]
 		}

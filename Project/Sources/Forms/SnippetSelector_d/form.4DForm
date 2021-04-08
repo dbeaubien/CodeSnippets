@@ -11,6 +11,7 @@
 	"windowMaxHeight": 32767,
 	"events": [
 		"onLoad",
+		"onClick",
 		"onTimer"
 	],
 	"windowTitle": "window title",
@@ -37,6 +38,7 @@
 					"width": 249,
 					"height": 260,
 					"events": [
+						"onClick",
 						"onDoubleClick"
 					],
 					"listboxType": "collection",

@@ -11,7 +11,8 @@
 	"windowMaxHeight": 32767,
 	"events": [
 		"onLoad",
-		"onCloseBox"
+		"onClick",
+		"onTimer"
 	],
 	"windowTitle": "window title",
 	"destination": "detailScreen",
@@ -23,8 +24,8 @@
 			"objects": {
 				"Text": {
 					"type": "text",
-					"text": "Snippet Text To Insert",
-					"top": 170,
+					"text": "Snippet Text To Insert:",
+					"top": 200,
 					"left": 11,
 					"width": 302,
 					"height": 16,
@@ -32,7 +33,7 @@
 					"sizingY": "fixed",
 					"sizingX": "fixed"
 				},
-				"Button": {
+				"ButtonSave": {
 					"type": "button",
 					"text": "Save",
 					"top": 13,
@@ -42,7 +43,8 @@
 					"events": [
 						"onClick"
 					],
-					"method": "ObjectMethods/Button.4dm"
+					"method": "ObjectMethods/ButtonSave.4dm",
+					"focusable": false
 				},
 				"Button1": {
 					"type": "button",
@@ -54,7 +56,13 @@
 					"events": [
 						"onClick"
 					],
-					"action": "cancel"
+					"action": "cancel",
+					"focusable": false,
+					"shortcutAccel": false,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "[Esc]"
 				},
 				"Input": {
 					"type": "input",
@@ -63,26 +71,34 @@
 					"width": 368,
 					"height": 17,
 					"dataSource": "Form:C1466.name",
-					"placeholder": "Snippet Name"
+					"placeholder": "Snippet Name",
+					"events": [
+						"onAfterKeystroke"
+					],
+					"method": "ObjectMethods/Input.4dm"
 				},
 				"Input1": {
 					"type": "input",
 					"left": 11,
-					"top": 192,
+					"top": 222,
 					"width": 513,
-					"height": 182,
+					"height": 152,
 					"dataSource": "Form:C1466.snippet",
 					"placeholder": "Snippet",
 					"scrollbarVertical": "automatic",
 					"scrollbarHorizontal": "automatic",
 					"bottom": 374,
 					"sizingY": "grow",
-					"sizingX": "grow"
+					"sizingX": "grow",
+					"events": [
+						"onAfterKeystroke"
+					],
+					"method": "ObjectMethods/Input1.4dm"
 				},
 				"Text1": {
 					"type": "text",
-					"text": "Insert Location",
-					"top": 54,
+					"text": "Insert Location:",
+					"top": 52,
 					"left": 11,
 					"width": 111,
 					"height": 16,
@@ -93,7 +109,7 @@
 				"Radio Button": {
 					"type": "radio",
 					"text": "Top of Window",
-					"top": 77,
+					"top": 72,
 					"left": 42,
 					"width": 131,
 					"height": 17,
@@ -101,52 +117,175 @@
 						"onClick"
 					],
 					"method": "ObjectMethods/Radio Button.4dm",
-					"dataSource": "Form:C1466.insertTop"
+					"dataSource": "Form:C1466.insertTop",
+					"radioGroup": "TargetLocation",
+					"style": "regular",
+					"focusable": false
 				},
 				"Radio Button1": {
 					"type": "radio",
 					"text": "Cursor Location",
-					"top": 77,
-					"left": 187,
+					"top": 72,
+					"left": 197,
 					"width": 141,
 					"height": 17,
 					"events": [
 						"onClick"
 					],
 					"method": "ObjectMethods/Radio Button1.4dm",
-					"dataSource": "Form:C1466.insertCursor"
+					"dataSource": "Form:C1466.insertCursor",
+					"radioGroup": "TargetLocation",
+					"focusable": false
 				},
 				"Radio Button2": {
 					"type": "radio",
 					"text": "Bottom of WIndow",
-					"top": 77,
-					"left": 329,
+					"top": 72,
+					"left": 357,
 					"width": 151,
 					"height": 17,
 					"events": [
 						"onClick"
 					],
 					"method": "ObjectMethods/Radio Button2.4dm",
-					"dataSource": "Form:C1466.insertBottom"
+					"dataSource": "Form:C1466.insertBottom",
+					"radioGroup": "TargetLocation",
+					"focusable": false
 				},
-				"Rectangle": {
-					"type": "rectangle",
-					"top": 457,
-					"left": 289,
-					"width": 144,
-					"height": 32
+				"Text2": {
+					"type": "text",
+					"text": "Applies To:",
+					"top": 114,
+					"left": 11,
+					"width": 111,
+					"height": 16,
+					"fontWeight": "bold",
+					"sizingY": "fixed",
+					"sizingX": "fixed"
 				},
-				"Rectangle1": {
-					"type": "rectangle",
-					"top": 457,
-					"left": 432,
-					"width": 144,
-					"height": 32
+				"Check Box": {
+					"type": "checkbox",
+					"text": "Project Methods",
+					"top": 136,
+					"left": 42,
+					"width": 139,
+					"height": 17,
+					"events": [
+						"onClick"
+					],
+					"dataSource": "Form:C1466.appliesToProjectMethods",
+					"dataSourceTypeHint": "boolean",
+					"focusable": false
+				},
+				"Check Box1": {
+					"type": "checkbox",
+					"text": "Object Methods",
+					"top": 136,
+					"left": 202,
+					"width": 139,
+					"height": 17,
+					"events": [
+						"onClick"
+					],
+					"dataSource": "Form:C1466.appliesToObjectMethods",
+					"dataSourceTypeHint": "boolean",
+					"focusable": false
+				},
+				"Check Box2": {
+					"type": "checkbox",
+					"text": "Form Methods",
+					"top": 136,
+					"left": 362,
+					"width": 139,
+					"height": 17,
+					"events": [
+						"onClick"
+					],
+					"dataSource": "Form:C1466.appliesToFormMethods",
+					"dataSourceTypeHint": "boolean",
+					"focusable": false
+				},
+				"Check Box3": {
+					"type": "checkbox",
+					"text": "Database Methods",
+					"top": 157,
+					"left": 42,
+					"width": 139,
+					"height": 17,
+					"events": [
+						"onClick"
+					],
+					"dataSource": "Form:C1466.appliesToDatabaseMethods",
+					"dataSourceTypeHint": "boolean",
+					"focusable": false
+				},
+				"Check Box4": {
+					"type": "checkbox",
+					"text": "Trigger Methods",
+					"top": 157,
+					"left": 202,
+					"width": 139,
+					"height": 17,
+					"events": [
+						"onClick"
+					],
+					"dataSource": "Form:C1466.appliesToTriggerMethods",
+					"dataSourceTypeHint": "boolean",
+					"focusable": false
+				},
+				"Check Box5": {
+					"type": "checkbox",
+					"text": "Classes",
+					"top": 157,
+					"left": 362,
+					"width": 139,
+					"height": 17,
+					"events": [
+						"onClick"
+					],
+					"dataSource": "Form:C1466.appliesToClassMethods",
+					"dataSourceTypeHint": "boolean",
+					"focusable": false
+				},
+				"Button2": {
+					"type": "button",
+					"text": "Cmd .",
+					"top": 13,
+					"left": 559,
+					"width": 67,
+					"height": 30,
+					"events": [
+						"onClick"
+					],
+					"action": "cancel",
+					"focusable": false,
+					"shortcutAccel": true,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": ".",
+					"sizingX": "move"
 				}
-			}
+			},
+			"entryOrder": [
+				"Button1",
+				"ButtonSave",
+				"Input",
+				"Radio Button",
+				"Radio Button1",
+				"Radio Button2",
+				"Check Box",
+				"Check Box1",
+				"Check Box2",
+				"Check Box3",
+				"Check Box4",
+				"Check Box5",
+				"Input1",
+				"Button2"
+			]
 		}
 	],
-	"geometryStamp": 211,
+	"geometryStamp": 295,
 	"method": "method.4dm",
 	"width": 550,
 	"height": 400,
@@ -156,5 +295,6 @@
 		"views": {
 			"View 1": {}
 		}
-	}
+	},
+	"menuBar": "MenuBar 1"
 }

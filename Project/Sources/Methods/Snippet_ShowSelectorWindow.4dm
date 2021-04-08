@@ -9,6 +9,7 @@ SET WINDOW TITLE:C213("Snippets"; $winRef)
 
 C_OBJECT:C1216($formObj)
 $formObj:=New object:C1471
+$formObj.windowRef:=$winRef
 
 DIALOG:C40("SnippetSelector_d"; $formObj)
 

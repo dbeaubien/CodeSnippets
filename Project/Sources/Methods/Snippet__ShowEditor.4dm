@@ -1,4 +1,22 @@
 //%attributes = {}
+// Snippet__ShowEditor (snippet) : wasUpdated
+//
+// DESCRIPTION
+//   Puts up an editor for the developer to modify
+//   the snippet. Returns true if the snippet
+//   has been modified.
+//
+var $1; $snippet : cs:C1710.SnippetModel
+var $0; $wasUpdated : Boolean
+// ----------------------------------------------------
+// HISTORY
+//   Created by: Dani Beaubien (04/08/2021)
+// ----------------------------------------------------
+ASSERT:C1129(Count parameters:C259=1)
+$snippet:=$1
+$wasUpdated:=$0
+
+
 C_LONGINT:C283($winRef)
 $winRef:=Open form window:C675("SnippetEditor_d"\
 ; Regular window:K27:1\
@@ -10,13 +28,27 @@ SET WINDOW TITLE:C213("Snippet Editor"; $winRef)
 C_OBJECT:C1216($formObj)
 $formObj:=New object:C1471
 
-$formObj.name:="test name"
-$formObj.snippet:="test name"
-$formObj.locationToInsert:="top"
+$formObj.name:=$snippet.GetName()
+$formObj.snippet:=$snippet.GetSnippet()
+$formObj.locationToInsert:=$snippet.GetLocationToApply()
+$formObj.limitToWindowTypes:=$snippet.GetListOfPermittedWindowTypes()
 
 DIALOG:C40("SnippetEditor_d"; $formObj)
 CLOSE WINDOW:C154($winRef)
 
 If ($formObj.saved)
+	$snippet.SetName($formObj.name)
+	$snippet.SetSnippet($formObj.snippet)
+	$snippet.SetLocationToApply($formObj.locationToInsert)
 	
+	C_TEXT:C284($supportedWindowType)
+	$snippet.ClearPermittedWindowTypes()
+	For each ($supportedWindowType; $formObj.limitToWindowTypes)
+		$snippet.AddPermitedWindowType($supportedWindowType)
+	End for each 
+	
+	$wasUpdated:=True:C214
 End if 
+
+
+$0:=$wasUpdated
