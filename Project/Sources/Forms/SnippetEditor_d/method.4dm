@@ -34,7 +34,7 @@ Form:C1466.atLeastOneCheckBoxChecked:=Form:C1466.appliesToProjectMethods\
  | Form:C1466.appliesToTriggerMethods\
  | Form:C1466.appliesToClassMethods
 
-C_BOOLEAN:C305($enableSaveButton)
+var $enableSaveButton : Boolean
 If (Form:C1466.name#"") & (Form:C1466.snippet#"")
 	$enableSaveButton:=Form:C1466.atLeastOneCheckBoxChecked
 End if 

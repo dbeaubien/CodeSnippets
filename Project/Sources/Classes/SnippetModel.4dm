@@ -1,6 +1,11 @@
 Class constructor
 	This:C1470.id:=Generate UUID:C1066
+	This:C1470.name:=""
 	This:C1470.friendlyName:=""
+	This:C1470.snippet:=""
+	This:C1470.locationToInsert:=""
+	This:C1470.limitToWindowTypes:=Null:C1517  // collection
+	
 	This:C1470.SetName("Random Name "+String:C10(Milliseconds:C459))
 	This:C1470.ClearPermittedWindowTypes()
 	This:C1470.SetSnippet("default snippet")
@@ -13,6 +18,29 @@ Function copy()->$duplicateSnippet : cs:C1710.SnippetModel
 	$duplicateSnippet.SetLocationToApply(This:C1470.GetLocationToApply())
 	$duplicateSnippet.SetSnippet(This:C1470.GetSnippet())
 	$duplicateSnippet.limitToWindowTypes:=This:C1470.GetListOfPermittedWindowTypes()
+	
+Function FromString($snippetAsString : Text)
+	var $snippetObj : Object
+	If ($snippetAsString="{@}")
+		$snippetObj:=JSON Parse:C1218($snippetAsString)
+		This:C1470.id:=$snippetObj.id
+		This:C1470.name:=$snippetObj.name
+		This:C1470.friendlyName:=$snippetObj.friendlyName
+		This:C1470.snippet:=$snippetObj.snippet
+		This:C1470.locationToInsert:=$snippetObj.locationToInsert
+		This:C1470.limitToWindowTypes:=$snippetObj.limitToWindowTypes
+	End if 
+	
+Function ToString()->$snippetAsString : Text
+	var $snippetObj : Object
+	$snippetObj:=New object:C1471
+	$snippetObj.id:=This:C1470.id
+	$snippetObj.name:=This:C1470.name
+	$snippetObj.friendlyName:=This:C1470.friendlyName
+	$snippetObj.snippet:=This:C1470.snippet
+	$snippetObj.locationToInsert:=This:C1470.locationToInsert
+	$snippetObj.limitToWindowTypes:=This:C1470.limitToWindowTypes
+	$snippetAsString:=JSON Stringify:C1217($snippetObj)
 	
 Function _UpdateFriendlyName()
 	This:C1470.friendlyName:=This:C1470.name+" ("+This:C1470.GetLocationToApply()+")"
@@ -53,7 +81,7 @@ Function AddPermitedWindowType($type : Text)
 	End if 
 	
 Function RemovePermitedWindowType($type : Text)
-	var index : Integer
+	var $index : Integer
 	$index:=This:C1470.limitToWindowTypes.indexOf($type)
 	If ($index>=0)
 		This:C1470.limitToWindowTypes:=This:C1470.limitToWindowTypes.remove($index; 1)

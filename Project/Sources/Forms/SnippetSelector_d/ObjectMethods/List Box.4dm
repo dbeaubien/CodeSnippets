@@ -1,7 +1,7 @@
 Case of 
 	: (FORM Event:C1606.code=On Clicked:K2:4) & (Right click:C712)
 		
-		C_COLLECTION:C1488($menuContents)
+		var $menuContents : Collection
 		$menuContents:=New collection:C1472
 		If (Form:C1466.selectedSnippet#Null:C1517)
 			$menuContents.push("Edit Snippet…")
@@ -19,12 +19,13 @@ Case of
 			$menuContents.push("(Delete Snippet")
 		End if 
 		
-		C_LONGINT:C283($selectedItem)
+		var $selectedItem : Integer
 		$selectedItem:=Pop up menu:C542($menuContents.join(";"))
 		Case of 
 			: ($selectedItem=1)  // Edit Snippet
 				HIDE WINDOW:C436(Form:C1466.windowRef)
 				If (Snippet__ShowEditor(Form:C1466.selectedSnippet))
+					Form:C1466.snippetController.SaveToDisk()
 					Form:C1466.forceListRefresh:=True:C214
 				End if 
 				SHOW WINDOW:C435(Form:C1466.windowRef)
@@ -39,12 +40,15 @@ Case of
 			: ($selectedItem=3)  // line
 				
 			: ($selectedItem=4)  // Add Snippet
+				HIDE WINDOW:C436(Form:C1466.windowRef)
 				var $snippet : cs:C1710.SnippetModel
 				$snippet:=cs:C1710.SnippetModel.new()
 				If (Snippet__ShowEditor($snippet))
 					Form:C1466.snippetController.AddSnippetToList($snippet)
+					Form:C1466.snippetController.SaveToDisk()
 					Form:C1466.forceListRefresh:=True:C214
 				End if 
+				SHOW WINDOW:C435(Form:C1466.windowRef)
 				
 			: ($selectedItem=5)  // line
 				

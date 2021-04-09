@@ -51,10 +51,11 @@
 					"hideFocusRing": true,
 					"hideSystemHighlight": false,
 					"fill": "automatic",
-					"alternateFill": "#EAFCFF",
+					"alternateFill": "#F8F8F8",
 					"hideExtraBlankRows": false,
 					"currentItemSource": "Form:C1466.selectedSnippet",
 					"method": "ObjectMethods/List Box.4dm",
+					"borderStyle": "none",
 					"columns": [
 						{
 							"header": {

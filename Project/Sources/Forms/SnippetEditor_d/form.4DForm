@@ -250,10 +250,10 @@
 				"Button2": {
 					"type": "button",
 					"text": "Cmd .",
-					"top": 13,
+					"top": 3,
 					"left": 559,
-					"width": 67,
-					"height": 30,
+					"width": 77,
+					"height": 18,
 					"events": [
 						"onClick"
 					],
@@ -264,7 +264,27 @@
 					"shortcutShift": false,
 					"shortcutAlt": false,
 					"shortcutKey": ".",
-					"sizingX": "move"
+					"sizingX": "move",
+					"sizingY": "fixed"
+				},
+				"Button3": {
+					"type": "button",
+					"text": "enter",
+					"top": 24,
+					"left": 559,
+					"width": 77,
+					"height": 18,
+					"events": [
+						"onClick"
+					],
+					"shortcutAccel": false,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "[Enter]",
+					"focusable": false,
+					"sizingX": "move",
+					"sizingY": "fixed"
 				}
 			},
 			"entryOrder": [
@@ -281,11 +301,12 @@
 				"Check Box4",
 				"Check Box5",
 				"Input1",
-				"Button2"
+				"Button2",
+				"Button3"
 			]
 		}
 	],
-	"geometryStamp": 295,
+	"geometryStamp": 315,
 	"method": "method.4dm",
 	"width": 550,
 	"height": 400,

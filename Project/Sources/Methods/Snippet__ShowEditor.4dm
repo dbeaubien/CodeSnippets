@@ -1,4 +1,4 @@
-//%attributes = {}
+//%attributes = {"invisible":true}
 // Snippet__ShowEditor (snippet) : wasUpdated
 //
 // DESCRIPTION
@@ -17,7 +17,7 @@ $snippet:=$1
 $wasUpdated:=$0
 
 
-C_LONGINT:C283($winRef)
+var $winRef : Integer
 $winRef:=Open form window:C675("SnippetEditor_d"\
 ; Regular window:K27:1\
 ; On the left:K39:2; Vertically centered:K39:4\
@@ -25,7 +25,7 @@ $winRef:=Open form window:C675("SnippetEditor_d"\
 
 SET WINDOW TITLE:C213("Snippet Editor"; $winRef)
 
-C_OBJECT:C1216($formObj)
+var $formObj : Object
 $formObj:=New object:C1471
 
 $formObj.name:=$snippet.GetName()
@@ -37,11 +37,11 @@ DIALOG:C40("SnippetEditor_d"; $formObj)
 CLOSE WINDOW:C154($winRef)
 
 If ($formObj.saved)
+	var $supportedWindowType : Text
+	
 	$snippet.SetName($formObj.name)
 	$snippet.SetSnippet($formObj.snippet)
 	$snippet.SetLocationToApply($formObj.locationToInsert)
-	
-	C_TEXT:C284($supportedWindowType)
 	$snippet.ClearPermittedWindowTypes()
 	For each ($supportedWindowType; $formObj.limitToWindowTypes)
 		$snippet.AddPermitedWindowType($supportedWindowType)
@@ -49,6 +49,5 @@ If ($formObj.saved)
 	
 	$wasUpdated:=True:C214
 End if 
-
 
 $0:=$wasUpdated

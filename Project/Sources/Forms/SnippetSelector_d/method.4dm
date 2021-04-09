@@ -10,7 +10,7 @@ Case of
 		Form:C1466.frontDevWindow.type:=""
 		
 		Form:C1466.snippetController:=cs:C1710.SnippetController.new()
-		Form:C1466.snippetController.LoadFromDisk("someBogusPath")
+		Form:C1466.snippetController.LoadFromDisk()
 		Form:C1466.snippetFilteredList:=Form:C1466.snippetController.GetSnippetListByType("@")
 		Form:C1466.selectedSnippet:=Null:C1517
 		
