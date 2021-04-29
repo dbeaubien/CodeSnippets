@@ -1,5 +1,4 @@
 //%attributes = {}
-
 var $controller : cs:C1710.SnippetController
 $controller:=cs:C1710.SnippetController.new()
 

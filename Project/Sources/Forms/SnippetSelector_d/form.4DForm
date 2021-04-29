@@ -3,9 +3,9 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"windowSizingX": "fixed",
+	"windowSizingX": "variable",
 	"windowSizingY": "variable",
-	"windowMinWidth": 0,
+	"windowMinWidth": 100,
 	"windowMinHeight": 300,
 	"windowMaxWidth": 32767,
 	"windowMaxHeight": 32767,
@@ -29,7 +29,8 @@
 					"left": 6,
 					"width": 236,
 					"height": 31,
-					"fontWeight": "bold"
+					"fontWeight": "bold",
+					"sizingX": "grow"
 				},
 				"List Box": {
 					"type": "listbox",
@@ -43,7 +44,7 @@
 					],
 					"listboxType": "collection",
 					"dataSource": "Form:C1466.snippetFilteredList",
-					"sizingX": "fixed",
+					"sizingX": "grow",
 					"sizingY": "grow",
 					"resizingMode": "legacy",
 					"focusable": true,
@@ -148,11 +149,26 @@
 					"shortcutKey": "[Return]",
 					"focusable": false,
 					"sizingX": "move"
+				},
+				"Button4": {
+					"type": "button",
+					"text": "Pref",
+					"top": 24,
+					"left": 197,
+					"width": 48,
+					"height": 8,
+					"events": [
+						"onClick"
+					],
+					"fontSize": 9,
+					"sizingX": "move",
+					"focusable": false,
+					"method": "ObjectMethods/Button4.4dm"
 				}
 			}
 		}
 	],
-	"geometryStamp": 138,
+	"geometryStamp": 192,
 	"editor": {
 		"activeView": "View 1",
 		"defaultView": "View 1",

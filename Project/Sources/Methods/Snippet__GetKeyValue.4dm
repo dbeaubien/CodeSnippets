@@ -14,8 +14,15 @@ ASSERT:C1129(Count parameters:C259=1)
 $key:=$1
 $value:=""
 
-If (Storage:C1525.keyValuePairs#Null:C1517)
-	$value:=String:C10(Storage:C1525.keyValuePairs[$key])
+Storage_init
+
+var $keyValue : Object
+If (Storage:C1525.keyValuePairs.query("key=:1"; $key).length>0)
+	$keyValue:=Storage:C1525.keyValuePairs.query("key=:1"; $key)[0]
+	
+	If ($keyValue#Null:C1517)
+		$value:=String:C10($keyValue.value)
+	End if 
 End if 
 
 $0:=$value

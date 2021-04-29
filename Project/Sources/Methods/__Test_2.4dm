@@ -1,6 +1,7 @@
 //%attributes = {}
 
 Snippet_SetKeyValue("me"; "Dani Beaubien")
+Snippet_SetKeyValue("task"; "9630")
 
 var $inSnippet; $outSnippet : Text
 
@@ -17,7 +18,8 @@ $preprocessor:=cs:C1710.SnippetPreProcessor.new()
 $outSnippet:=$preprocessor.PreProcessSnippet($inSnippet; "Method: __Test2")
 
 
-
+KeyValuePairs_LoadFromDisk
+KeyValuePairs_SaveToDisk
 
 BEEP:C151
 ABORT:C156

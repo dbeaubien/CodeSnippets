@@ -23,6 +23,8 @@ Case of
 		// nothing to do
 		
 	Else 
+		KeyValuePairs_LoadFromDisk
+		
 		var $winRef : Integer
 		$winRef:=Open form window:C675("SnippetSelector_d"\
 			; 0-Palette form window:K39:9\

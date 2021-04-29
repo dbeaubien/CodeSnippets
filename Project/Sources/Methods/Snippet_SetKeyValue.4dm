@@ -17,14 +17,4 @@ ASSERT:C1129(Count parameters:C259=2)
 $key:=$1
 $value:=$2
 
-If (Storage:C1525.keyValuePairs=Null:C1517)
-	Use (Storage:C1525)
-		Storage:C1525.keyValuePairs:=New shared object:C1526
-	End use 
-End if 
-
-var $keyValuePairs : Object
-$keyValuePairs:=Storage:C1525.keyValuePairs
-Use ($keyValuePairs)
-	$keyValuePairs[$key]:=$value
-End use 
+Snippet__SetKeyValueOfType($key; $value; "code")

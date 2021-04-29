@@ -1,0 +1,288 @@
+﻿{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "fixed",
+	"windowSizingY": "variable",
+	"windowMinWidth": 0,
+	"windowMinHeight": 290,
+	"windowMaxWidth": 32767,
+	"windowMaxHeight": 32767,
+	"events": [
+		"onLoad",
+		"onClick"
+	],
+	"windowTitle": "window title",
+	"destination": "detailScreen",
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"Group Box": {
+					"type": "groupBox",
+					"text": "Selected Tag Details",
+					"top": 21,
+					"left": 498,
+					"width": 236,
+					"height": 313,
+					"fontWeight": "bold"
+				},
+				"ButtonSave": {
+					"type": "button",
+					"text": "Save",
+					"top": 349,
+					"left": 668,
+					"width": 67,
+					"height": 30,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/ButtonSave.4dm",
+					"focusable": false,
+					"sizingY": "move"
+				},
+				"Button1": {
+					"type": "button",
+					"text": "Cancel",
+					"top": 348,
+					"left": 594,
+					"width": 67,
+					"height": 30,
+					"events": [
+						"onClick"
+					],
+					"action": "cancel",
+					"focusable": false,
+					"shortcutAccel": false,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "[Esc]",
+					"sizingY": "move"
+				},
+				"selectedTag_Key": {
+					"type": "input",
+					"left": 513,
+					"top": 63,
+					"width": 208,
+					"height": 17,
+					"dataSource": "Form:C1466.selectedTag.key",
+					"placeholder": "",
+					"events": [
+						"onDataChange",
+						"onAfterKeystroke"
+					],
+					"method": "ObjectMethods/selectedTag_Key.4dm"
+				},
+				"Text2": {
+					"type": "text",
+					"text": "Custom Defined Tags:",
+					"top": 12,
+					"left": 16,
+					"width": 201,
+					"height": 16,
+					"fontWeight": "bold",
+					"sizingY": "fixed",
+					"sizingX": "fixed"
+				},
+				"Button2": {
+					"type": "button",
+					"text": "Cmd .",
+					"top": 3,
+					"left": 759,
+					"width": 77,
+					"height": 18,
+					"events": [
+						"onClick"
+					],
+					"action": "cancel",
+					"focusable": false,
+					"shortcutAccel": true,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": ".",
+					"sizingX": "move",
+					"sizingY": "fixed"
+				},
+				"Button3": {
+					"type": "button",
+					"text": "enter",
+					"top": 24,
+					"left": 759,
+					"width": 77,
+					"height": 18,
+					"events": [
+						"onClick"
+					],
+					"shortcutAccel": false,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "[Enter]",
+					"focusable": false,
+					"sizingX": "move",
+					"sizingY": "fixed"
+				},
+				"tags_lb": {
+					"type": "listbox",
+					"left": 16,
+					"top": 32,
+					"width": 468,
+					"height": 346,
+					"events": [
+						"onClick",
+						"onHeaderClick",
+						"onDataChange",
+						"onSelectionChange"
+					],
+					"dataSource": "Form:C1466.keyValuePairs",
+					"listboxType": "collection",
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"focusable": false,
+					"currentItemSource": "Form:C1466.selectedTag",
+					"columns": [
+						{
+							"header": {
+								"name": "Header3",
+								"text": "Type",
+								"fontWeight": "bold",
+								"textAlign": "left"
+							},
+							"name": "Column3",
+							"dataSource": "This:C1470.type",
+							"width": 100,
+							"footer": {
+								"name": "Footer3"
+							}
+						},
+						{
+							"header": {
+								"text": "Tag",
+								"name": "Header1",
+								"fontWeight": "bold",
+								"textAlign": "left"
+							},
+							"name": "Column1",
+							"footer": {
+								"name": "Footer1"
+							},
+							"width": 140,
+							"dataSource": "This:C1470.key",
+							"enterable": false
+						},
+						{
+							"header": {
+								"name": "Header2",
+								"text": "Value",
+								"textAlign": "left",
+								"fontWeight": "bold"
+							},
+							"name": "Column2",
+							"footer": {
+								"name": "Footer2"
+							},
+							"dataSource": "This:C1470.value",
+							"enterable": false
+						}
+					]
+				},
+				"selectedTag_value": {
+					"type": "input",
+					"left": 513,
+					"top": 112,
+					"width": 208,
+					"height": 17,
+					"dataSource": "Form:C1466.selectedTag.value",
+					"placeholder": "",
+					"events": [
+						"onAfterKeystroke"
+					]
+				},
+				"windowTitle": {
+					"type": "text",
+					"text": "Tag",
+					"top": 43,
+					"left": 513,
+					"width": 84,
+					"height": 16,
+					"fontWeight": "bold",
+					"sizingX": "grow"
+				},
+				"windowTitle1": {
+					"type": "text",
+					"text": "Value",
+					"top": 93,
+					"left": 513,
+					"width": 84,
+					"height": 16,
+					"fontWeight": "bold",
+					"sizingX": "grow"
+				},
+				"note": {
+					"type": "text",
+					"text": "Value",
+					"top": 138,
+					"left": 513,
+					"width": 214,
+					"height": 188,
+					"fontWeight": "normal",
+					"sizingX": "grow"
+				},
+				"Button": {
+					"type": "button",
+					"text": "Add",
+					"top": 12,
+					"left": 365,
+					"width": 51,
+					"height": 14,
+					"events": [
+						"onClick"
+					],
+					"focusable": false,
+					"method": "ObjectMethods/Button.4dm"
+				},
+				"btn_delete": {
+					"type": "button",
+					"text": "Delete",
+					"top": 12,
+					"left": 423,
+					"width": 61,
+					"height": 14,
+					"events": [
+						"onClick"
+					],
+					"focusable": false,
+					"method": "ObjectMethods/btn_delete.4dm"
+				}
+			},
+			"entryOrder": [
+				"Button1",
+				"ButtonSave",
+				"selectedTag_Key",
+				"Button2",
+				"Button3",
+				"tags_lb",
+				"selectedTag_value",
+				"Button",
+				"btn_delete"
+			]
+		}
+	],
+	"geometryStamp": 625,
+	"method": "method.4dm",
+	"width": 750,
+	"height": 390,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	},
+	"menuBar": "MenuBar 1"
+}

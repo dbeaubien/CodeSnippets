@@ -20,9 +20,12 @@ Case of
 		$frontWinRef:=Frontmost window:C447
 		Case of 
 			: (Form:C1466.designProcessId=0)
+				Form:C1466.snippetFilteredList:=Form:C1466.snippetController.GetSnippetListByType("EMPTY LIST")
 				
 			: (Form:C1466.frontDevWindow.refId=$frontWinRef) & (Not:C34(Form:C1466.forceListRefresh))  // nothing to do
+				
 			: (Form:C1466.designProcessId#Window process:C446($frontWinRef))  // not a designer window
+				Form:C1466.snippetFilteredList:=Form:C1466.snippetController.GetSnippetListByType("EMPTY LIST")
 				Form:C1466.frontDevWindow.refId:=0
 				Form:C1466.frontDevWindow.type:=""
 				OBJECT SET TITLE:C194(*; "Header1"; "Snippets Unsupported")
