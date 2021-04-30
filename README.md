@@ -1,5 +1,5 @@
 # CodeSnippets
-A tool to allow 4D developers to easily store and re-use their favorite 4D code snippets.
+A tool to allow 4D developers to easily store and re-use their favorite 4D code snippets. The component was developed in project mode with classes using 4D v18 R5.
 
 ## Overview
 This component allows you to quickly define and use code snippets by a simple double-click of your mouse.
