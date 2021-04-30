@@ -1,15 +1,16 @@
-//%attributes = {"invisible":true,"preemptive":"capable"}
 // KeyValuePairs_GetFilePath () : filePath
 //
-var $0; $filePath : Text
+var $0 : Text
+var $file : Object
+
 // ----------------------------------------------------
 // HISTORY
 //   Created by: Dani Beaubien (04/28/2021)
 // ----------------------------------------------------
-ASSERT:C1129(Count parameters:C259=0)
-$filePath:=""
+ASSERT(Count parameters=0)
+$file:=Folder(fk user preferences folder).file("4D Snippets key-value pairs.json")
+If (Not($file.exists))
+	$file.setText("[]")
+End if 
 
-$filePath:=System folder:C487(User preferences_user:K41:4)
-$filePath:=$filePath+"4D Snippets key-value pairs.json"
-
-$0:=$filePath
+$0:=$file.platformPath
