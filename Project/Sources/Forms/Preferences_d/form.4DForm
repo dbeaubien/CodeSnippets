@@ -4,37 +4,42 @@
 		"kind": "form"
 	},
 	"windowSizingX": "fixed",
-	"windowSizingY": "variable",
+	"windowSizingY": "fixed",
 	"windowMinWidth": 0,
 	"windowMinHeight": 290,
 	"windowMaxWidth": 32767,
 	"windowMaxHeight": 32767,
 	"events": [
 		"onLoad",
-		"onClick"
+		"onClick",
+		"onCloseBox"
 	],
 	"windowTitle": "window title",
 	"destination": "detailScreen",
 	"pages": [
 		{
-			"objects": {}
-		},
-		{
 			"objects": {
-				"Group Box": {
-					"type": "groupBox",
-					"text": "Selected Tag Details",
-					"top": 21,
-					"left": 498,
-					"width": 236,
-					"height": 313,
-					"fontWeight": "bold"
+				"Tab Control": {
+					"type": "tab",
+					"text": "Tab control",
+					"top": 10,
+					"left": 10,
+					"width": 730,
+					"height": 334,
+					"sizingY": "grow",
+					"sizingX": "grow",
+					"dataSourceTypeHint": "arrayText",
+					"labels": {
+						"$ref": "/SOURCES/lists.json#/Tabs_Prefs"
+					},
+					"labelsPlacement": "top",
+					"action": "gotoPage"
 				},
 				"ButtonSave": {
 					"type": "button",
 					"text": "Save",
-					"top": 349,
-					"left": 668,
+					"top": 352,
+					"left": 671,
 					"width": 67,
 					"height": 30,
 					"events": [
@@ -47,8 +52,8 @@
 				"Button1": {
 					"type": "button",
 					"text": "Cancel",
-					"top": 348,
-					"left": 594,
+					"top": 351,
+					"left": 597,
 					"width": 67,
 					"height": 30,
 					"events": [
@@ -62,11 +67,24 @@
 					"shortcutAlt": false,
 					"shortcutKey": "[Esc]",
 					"sizingY": "move"
+				}
+			}
+		},
+		{
+			"objects": {
+				"Group Box": {
+					"type": "groupBox",
+					"text": "Selected Tag Details",
+					"top": 61,
+					"left": 498,
+					"width": 236,
+					"height": 273,
+					"fontWeight": "bold"
 				},
 				"selectedTag_Key": {
 					"type": "input",
 					"left": 513,
-					"top": 63,
+					"top": 103,
 					"width": 208,
 					"height": 17,
 					"dataSource": "Form:C1466.selectedTag.key",
@@ -80,7 +98,7 @@
 				"Text2": {
 					"type": "text",
 					"text": "Custom Defined Tags:",
-					"top": 12,
+					"top": 52,
 					"left": 16,
 					"width": 201,
 					"height": 16,
@@ -130,9 +148,9 @@
 				"tags_lb": {
 					"type": "listbox",
 					"left": 16,
-					"top": 32,
+					"top": 72,
 					"width": 468,
-					"height": 346,
+					"height": 262,
 					"events": [
 						"onClick",
 						"onHeaderClick",
@@ -194,7 +212,7 @@
 				"selectedTag_value": {
 					"type": "input",
 					"left": 513,
-					"top": 112,
+					"top": 152,
 					"width": 208,
 					"height": 17,
 					"dataSource": "Form:C1466.selectedTag.value",
@@ -206,7 +224,7 @@
 				"windowTitle": {
 					"type": "text",
 					"text": "Tag",
-					"top": 43,
+					"top": 83,
 					"left": 513,
 					"width": 84,
 					"height": 16,
@@ -216,7 +234,7 @@
 				"windowTitle1": {
 					"type": "text",
 					"text": "Value",
-					"top": 93,
+					"top": 133,
 					"left": 513,
 					"width": 84,
 					"height": 16,
@@ -226,17 +244,17 @@
 				"note": {
 					"type": "text",
 					"text": "Value",
-					"top": 138,
+					"top": 178,
 					"left": 513,
 					"width": 214,
-					"height": 188,
+					"height": 148,
 					"fontWeight": "normal",
 					"sizingX": "grow"
 				},
 				"Button": {
 					"type": "button",
 					"text": "Add",
-					"top": 12,
+					"top": 52,
 					"left": 365,
 					"width": 51,
 					"height": 14,
@@ -249,7 +267,7 @@
 				"btn_delete": {
 					"type": "button",
 					"text": "Delete",
-					"top": 12,
+					"top": 52,
 					"left": 423,
 					"width": 61,
 					"height": 14,
@@ -261,8 +279,6 @@
 				}
 			},
 			"entryOrder": [
-				"Button1",
-				"ButtonSave",
 				"selectedTag_Key",
 				"Button2",
 				"Button3",
@@ -271,9 +287,88 @@
 				"Button",
 				"btn_delete"
 			]
+		},
+		{
+			"objects": {
+				"Button4": {
+					"type": "button",
+					"text": "Show File",
+					"top": 73,
+					"left": 26,
+					"width": 96,
+					"height": 30,
+					"events": [
+						"onLoad",
+						"onClick"
+					],
+					"action": "",
+					"focusable": false,
+					"shortcutAccel": false,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "",
+					"sizingY": "move",
+					"method": "ObjectMethods/Button4.4dm"
+				},
+				"Text1": {
+					"type": "text",
+					"text": "Location of Stored Snippets:",
+					"top": 52,
+					"left": 19,
+					"width": 241,
+					"height": 16,
+					"fontWeight": "bold",
+					"sizingY": "fixed",
+					"sizingX": "fixed"
+				},
+				"SnippetsFolderPath": {
+					"type": "text",
+					"text": "{SnippetsFolderPath}",
+					"top": 79,
+					"left": 139,
+					"width": 589,
+					"height": 76,
+					"fontWeight": "normal",
+					"sizingY": "fixed",
+					"sizingX": "fixed"
+				},
+				"Button5": {
+					"type": "button",
+					"text": "Show File",
+					"top": 173,
+					"left": 26,
+					"width": 96,
+					"height": 30,
+					"events": [
+						"onLoad",
+						"onClick"
+					],
+					"action": "",
+					"focusable": false,
+					"shortcutAccel": false,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "",
+					"sizingY": "move",
+					"method": "ObjectMethods/Button5.4dm"
+				},
+				"KeyValueFilePath": {
+					"type": "text",
+					"text": "{KeyValueFilePath}",
+					"top": 179,
+					"left": 139,
+					"width": 589,
+					"height": 76,
+					"fontWeight": "normal",
+					"sizingY": "fixed",
+					"sizingX": "fixed"
+				}
+			}
 		}
 	],
-	"geometryStamp": 625,
+	"geometryStamp": 786,
 	"method": "method.4dm",
 	"width": 750,
 	"height": 390,

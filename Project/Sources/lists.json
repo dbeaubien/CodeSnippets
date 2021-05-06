@@ -1,0 +1,17 @@
+﻿{
+	"Tabs_Prefs": {
+		"editable": true,
+		"items": [
+			{
+				"text": "Defined Key/Value Tags",
+				"ref": 1,
+				"editable": true
+			},
+			{
+				"text": "FIle Locations",
+				"ref": 2,
+				"editable": true
+			}
+		]
+	}
+}

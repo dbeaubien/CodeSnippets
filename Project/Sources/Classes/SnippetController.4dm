@@ -67,7 +67,7 @@ Function ApplySnippetToDevWindow($snippet : cs:C1710.SnippetModel)
 	End if 
 	
 	
-Function _GetFilePath()->$filePath : Text
+Function GetFilePath()->$filePath : Text
 	$filePath:=System folder:C487(User preferences_user:K41:4)
 	$filePath:=$filePath+"4D Snippets.json"
 	
@@ -77,7 +77,7 @@ Function SaveToDisk
 	var $snippet : cs:C1710.SnippetModel
 	var $snippetCollection : Collection
 	
-	$filePath:=This:C1470._GetFilePath()
+	$filePath:=This:C1470.GetFilePath()
 	If (Test path name:C476($filePath)=Is a document:K24:1)
 		$fileRef:=Open document:C264($filePath)
 	Else 
@@ -95,7 +95,7 @@ Function SaveToDisk
 	
 Function LoadFromDisk
 	var $filePath : Text
-	$filePath:=This:C1470._GetFilePath()
+	$filePath:=This:C1470.GetFilePath()
 	If (Test path name:C476($filePath)#Is a document:K24:1)
 		$filePath:=Get 4D folder:C485(Current resources folder:K5:16)
 		$filePath:=$filePath+"4D Snippets Default.json"
