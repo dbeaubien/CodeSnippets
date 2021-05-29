@@ -39,6 +39,9 @@ Case of
 		DIALOG:C40("Preferences_d"; $formObj)
 		
 		If ($formObj.saved)
+			Use (Storage:C1525.keyValuePairs)
+				OBJ_CopyToSharedCollection($formObj.keyValuePairs; Storage:C1525.keyValuePairs)
+			End use 
 			KeyValuePairs_SaveToDisk()
 			
 			Use (Storage:C1525.keyValuePairs)
