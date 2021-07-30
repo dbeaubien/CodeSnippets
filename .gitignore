@@ -1,19 +1,53 @@
-# No user preferences
-userPreferences.*
+# Inspired by Source: https://github.com/vdelachaux/4DPop-Git/blob/master/Resources/gitignore.txt
+#--------------------------------
+# Ignore invisible files/folders
+#--------------------------------
+.*
+!.git*
 
-# No derived data
-Project/DerivedData
+.git/
 
-# No data or indexes
-Data/*
+#--------------------------------
+# Ignore data file
+#--------------------------------
+[dD][aA][tT][aA]/
+*.4DD
 *.4dd
 *.4DIndx
 *.4DIndy
 *.Match
+*.journal
+
+#--------------------------------
+# Ignore derived data
+#--------------------------------
+Project/DerivedData
+
+#--------------------------------
+# Ignore logs
+#--------------------------------
+Logs/
+
+#--------------------------------
+# Ignore settings & preferences
+#--------------------------------
+Preferences/
+!4DPop AppMaker.*
+
+Settings/
+#!buildApp.4DSettings
+
+userPreferences.*/
+
+#--------------------------------
+# Miscellaneous
+#--------------------------------
+*__Orphan__*
 *symbols.txt
+ehthumbs.db
+Thumbs.db
 
-# No logs
-Logs
-
-Settings/buildApp.4DSettings
-Resources/componentManifest.json
+#--------------------------------
+# Added by user
+#--------------------------------
+# Resources/componentManifest.json
