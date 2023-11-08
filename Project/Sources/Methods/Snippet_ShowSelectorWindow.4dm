@@ -25,11 +25,24 @@ Case of
 	Else 
 		KeyValuePairs_LoadFromDisk
 		
+		var $Bounds : Object
+		$Bounds:=Bounds
+		$frames:=$Bounds.get("SnippetSelector_d")
+		
 		var $winRef : Integer
-		$winRef:=Open form window:C675("SnippetSelector_d"\
-			; 0-Palette form window:K39:9\
-			; On the left:K39:2; Vertically centered:K39:4\
-			; *)
+		If ($frames.x=0) & ($frames.y=0)
+			$winRef:=Open form window:C675("SnippetSelector_d"\
+				; Palette form window:K39:9\
+				; On the left:K39:2; Vertically centered:K39:4\
+				; *)
+		Else 
+			$winRef:=Open form window:C675("SnippetSelector_d"\
+				; Palette form window:K39:9\
+				; $frames.x; $frames.y)
+			
+			SET WINDOW RECT:C444($frames.x; $frames.y\
+				; $frames.x+$frames.width; $frames.y+$frames.height)
+		End if 
 		
 		SET WINDOW TITLE:C213("Snippets"; $winRef)
 		
