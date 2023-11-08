@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
 <base name="CodeSnippets" uuid="7C21E2BE1D5F4053B558BA83BAECA1F5" collation_locale="en">
 	<schema name="DEFAULT_SCHEMA"/>
@@ -17,5 +17,5 @@
 			<table_ref uuid="84E1396D7ECA4FA9B48B9205F8C9230C" name="Table_1"/>
 		</field_ref>
 	</index>
-	<base_extra __stringCompHash="icu:63.1.0" __keywordBuildingHash="icu:63.1.0"/>
+	<base_extra __stringCompHash="icu:68.1.0" __keywordBuildingHash="icu:68.1.0"/>
 </base>
