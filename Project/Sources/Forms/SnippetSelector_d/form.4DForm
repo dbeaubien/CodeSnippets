@@ -12,6 +12,7 @@
 	"events": [
 		"onLoad",
 		"onClick",
+		"onUnload",
 		"onTimer"
 	],
 	"windowTitle": "window title",

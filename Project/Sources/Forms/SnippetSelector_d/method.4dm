@@ -45,6 +45,12 @@ Case of
 				End if 
 		End case 
 		
+		
+	: (Form event code:C388=On Unload:K2:2)
+		var $Bounds : Object
+		$Bounds:=Bounds
+		$Bounds.set("SnippetSelector_d")
+		
 End case 
 
 If (Form:C1466.designProcessId=0)

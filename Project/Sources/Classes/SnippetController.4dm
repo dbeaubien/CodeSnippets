@@ -61,7 +61,7 @@ Function ApplySnippetToDevWindow($snippet : cs:C1710.SnippetModel)
 		
 		SET TEXT TO PASTEBOARD:C523($snippetText)
 		POST KEY:C465(Character code:C91("v"); Command key mask:K16:1; $processNumber)
-		DELAY PROCESS:C323(Current process:C322; 5)
+		DELAY PROCESS:C323(Current process:C322; 30)
 		
 		SET TEXT TO PASTEBOARD:C523($currentPasteboard)
 	End if 
