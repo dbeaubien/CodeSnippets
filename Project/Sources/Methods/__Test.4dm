@@ -1,4 +1,10 @@
 //%attributes = {}
+
+// Use form CSS to control dark mode
+// v20.x
+// https://discuss.4d.com/t/form-background-color/26770/10?u=beaubien.dani
+
+
 var $controller : cs:C1710.SnippetController
 $controller:=cs:C1710.SnippetController.new()
 
