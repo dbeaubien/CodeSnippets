@@ -8,6 +8,7 @@ Case of
 		Form:C1466.frontDevWindow:=New object:C1471
 		Form:C1466.frontDevWindow.refId:=0
 		Form:C1466.frontDevWindow.type:=""
+		Form:C1466.rowHeight:=0
 		
 		Form:C1466.snippetController:=cs:C1710.SnippetController.new()
 		Form:C1466.snippetController.LoadFromDisk()
@@ -16,6 +17,10 @@ Case of
 		
 		
 	: (FORM Event:C1606.code=On Timer:K2:25) | (Form:C1466.forceListRefresh)
+		If (Form:C1466.rowHeight<5)  // Work around a v20.x issue where line height can go to 1px
+			Form:C1466.rowHeight:=LISTBOX Get row height:C1408(*; "List Box"; 1)
+		End if 
+		
 		var $frontWinRef : Integer
 		$frontWinRef:=Frontmost window:C447
 		Case of 
@@ -43,7 +48,9 @@ Case of
 					Form:C1466.snippetFilteredList:=Form:C1466.snippetController.GetSnippetListByType("unsupported")
 					OBJECT SET TITLE:C194(*; "Header1"; "Snippets Unsupported")
 				End if 
+				
 		End case 
+		LISTBOX SET ROWS HEIGHT:C835(*; "List Box"; Form:C1466.rowHeight; lk pixels:K53:22)  // Work around a v20.x issue where line height can go to 1px
 		
 		
 	: (Form event code:C388=On Unload:K2:2)
