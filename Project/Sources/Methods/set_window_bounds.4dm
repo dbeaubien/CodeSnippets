@@ -1,21 +1,19 @@
 //%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
 // SOURCE: https://github.com/miyako/4d-utility-window-bounds
 
-C_TEXT:C284($1; $formIdentifier)
-
-$formIdentifier:=$1
+#DECLARE($formIdentifier : Text)
 
 $info:=split_form_identifier($formIdentifier)
 
 If ($info#Null:C1517)
 	
-	C_TEXT:C284($tableName; $formName)
+	var $tableName; $formName : Text
 	$tableName:=$info.table
 	$formName:=$info.form
 	
 	$formFile:=get_window_bounds_file($tableName; $formName)
 	
-	C_OBJECT:C1216($formRect)
+	var $formRect : Object
 	
 	If (Not:C34(is_preemtive))
 		//%T-
@@ -23,11 +21,12 @@ If ($info#Null:C1517)
 		//%T+
 		If ($window#0)
 			
-			C_REAL:C285($left; $top)
-			C_LONGINT:C283($x; $y; $right; $bottom; $screen; $s)
+			var $left; $top : Real
+			var $x; $y; $right; $bottom; $screen; $s : Integer
 			//%T-
 			GET WINDOW RECT:C443($x; $y; $right; $bottom; $window)
-			C_LONGINT:C283($sleft; $stop; $sright; $sbottom)
+			
+			var $sleft; $stop; $sright; $sbottom : Integer
 			$screen:=Menu bar screen:C441
 			SCREEN COORDINATES:C438($sleft; $stop; $sright; $sbottom; $screen)
 			$left:=($x-$sleft)/($sright-$sleft)

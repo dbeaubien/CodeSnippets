@@ -1,9 +1,7 @@
 //%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
-
 // SOURCE: https://github.com/miyako/4d-utility-window-bounds
 
-C_TEXT:C284($1)
-C_OBJECT:C1216($0; $EXPORT)
+#DECLARE()->$EXPORT : Object
 
 $name:=Current method name:C684
 
@@ -28,5 +26,3 @@ If ($EXPORT[$name]=Null:C1517)
 	End use 
 	
 End if 
-
-$0:=$EXPORT

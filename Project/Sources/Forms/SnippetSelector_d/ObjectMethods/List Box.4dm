@@ -19,6 +19,7 @@ Case of
 			$menuContents.push("(Delete Snippet")
 		End if 
 		
+		var $snippet : cs:C1710.SnippetModel
 		var $selectedItem : Integer
 		$selectedItem:=Pop up menu:C542($menuContents.join(";"))
 		Case of 
@@ -31,7 +32,6 @@ Case of
 				SHOW WINDOW:C435(Form:C1466.windowRef)
 				
 			: ($selectedItem=2)  // Duplicate Snippet
-				var $snippet : cs:C1710.SnippetModel
 				$snippet:=Form:C1466.selectedSnippet
 				$snippet:=$snippet.copy()
 				Form:C1466.snippetController.AddSnippetToList($snippet)
@@ -41,7 +41,6 @@ Case of
 				
 			: ($selectedItem=4)  // Add Snippet
 				HIDE WINDOW:C436(Form:C1466.windowRef)
-				var $snippet : cs:C1710.SnippetModel
 				$snippet:=cs:C1710.SnippetModel.new()
 				If (Snippet__ShowEditor($snippet))
 					Form:C1466.snippetController.AddSnippetToList($snippet)

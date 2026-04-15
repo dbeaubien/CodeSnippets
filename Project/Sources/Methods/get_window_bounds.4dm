@@ -1,23 +1,19 @@
 //%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
 // SOURCE: https://github.com/miyako/4d-utility-window-bounds
 
-C_TEXT:C284($1; $formIdentifier)
-
-$formIdentifier:=$1
+#DECLARE($formIdentifier : Text)->$formRect : Object
 
 $info:=split_form_identifier($formIdentifier)
 
 If ($info#Null:C1517)
 	
-	C_TEXT:C284($tableName; $formName)
+	var $tableName; $formName : Text
 	$tableName:=$info.table
 	$formName:=$info.form
 	
 	$formFile:=get_window_bounds_file($tableName; $formName)
 	
-	C_OBJECT:C1216($formRect)
-	
-	C_LONGINT:C283($left; $top; $right; $bottom)
+	var $left; $top; $right; $bottom : Integer
 	
 	$appVersion:=Application version:C493
 	If (Not:C34(is_preemtive))
@@ -47,13 +43,13 @@ If ($info#Null:C1517)
 	Else 
 		
 		If (Not:C34(is_preemtive))
-			C_LONGINT:C283($width; $height)
+			var $width; $height : Integer
 			//%T-
 			If ($tableName="{projectForm}")
 				FORM GET PROPERTIES:C674($formName; $width; $height)
 			Else 
 				$tableNumber:=ds:C1482[$tableName].getInfo().tableNumber
-				C_POINTER:C301($table)
+				var $table : Pointer
 				$table:=Table:C252($tableNumber)
 				FORM GET PROPERTIES:C674($table->; $formName; $width; $height)
 			End if 
@@ -65,7 +61,7 @@ If ($info#Null:C1517)
 	
 	If ($formRect#Null:C1517)
 		
-		C_LONGINT:C283($x; $y; $s)
+		var $x; $y; $s : Integer
 		
 		If (Not:C34(is_preemtive))
 			//%T-
@@ -85,9 +81,6 @@ If ($info#Null:C1517)
 		
 		$formRect.x:=$x
 		$formRect.y:=$y
-		
-		$0:=$formRect
-		
 	End if 
 	
 End if 

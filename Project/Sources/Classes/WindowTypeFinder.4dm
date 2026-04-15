@@ -1,3 +1,6 @@
+
+property windowPrefixList : Collection
+
 Class constructor
 	This:C1470.windowPrefixList:=This:C1470._GetList()
 	

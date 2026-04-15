@@ -1,10 +1,7 @@
 //%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
 // SOURCE: https://github.com/miyako/4d-utility-window-bounds
+#DECLARE($formIdentifier : Text)->$status : Object
 
-C_TEXT:C284($1; $formIdentifier)
-C_OBJECT:C1216($0; $status)
-
-$formIdentifier:=$1
 
 ARRAY LONGINT:C221($pos; 0)
 ARRAY LONGINT:C221($len; 0)
@@ -22,5 +19,3 @@ Else
 	$status.form:=$formIdentifier
 	
 End if 
-
-$0:=$status

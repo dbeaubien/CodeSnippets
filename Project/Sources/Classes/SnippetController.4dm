@@ -1,3 +1,7 @@
+
+property version : Integer
+property snippetList : Collection
+
 Class constructor
 	This:C1470.version:=1  // used for checking against the version in files on disk
 	This:C1470.snippetList:=New collection:C1472

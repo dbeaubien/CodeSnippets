@@ -1,5 +1,7 @@
 // This is a container for all the custom processing code.
 
+property hostPreprocessMethod : Text
+
 Class constructor($hostPreprocessMethod : Text)
 	This:C1470.hostPreprocessMethod:=""
 	If (Count parameters:C259=1)

@@ -1,4 +1,4 @@
 //%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
-C_BOOLEAN:C305($0)
+#DECLARE() : Boolean
 
-$0:=Structure file:C489#(Structure file:C489(*))
+return (Structure file:C489#(Structure file:C489(*)))

@@ -1,3 +1,11 @@
+
+property id : Text
+property name : Text
+property friendlyName : Text
+property snippet : Text
+property locationToInsert : Text
+property limitToWindowTypes : Collection
+
 Class constructor
 	This:C1470.id:=Generate UUID:C1066
 	This:C1470.name:=""
